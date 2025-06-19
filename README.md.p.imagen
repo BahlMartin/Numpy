@@ -1,0 +1,22 @@
+README.md
+#Procesador de Imagenes con Numpy
+Este proyecto proporciona una clase "Procesador Imagen" en python que utiliza la biblioteca  Numpy para procesar imagenes. La clase permite cargar imagenes, convertirlas a escala de grises 
+y obtenert un array Numpy que representa la imagen en escalas de grises.
+ ##FUNCIONALIDAD
+***cargar imagenes:** carga una imagen desde una ruta especifica. maneja exepciones en caso de que la imagen no se encuentre en la ruta indicada.
++++ CONVERSION A ESCALA DE GRISES***: convierte la imagen cargada a escalade grises utilizando la libreria PIL.
+**REPRESENTACION NUMPY***: Transforma la imagen en escala de grises n un array Numpy bidimensional, facilitando el analisis y procesamiento numerico de la imagen.
+*** calculo promediode intensidad**:Calcula el promedio de intensidad de los pixeles de la imagen en escala de grises 
+
+### INSTALACION:
+para ejecutar este proyecto,necesitas tener instaladas las siguientes bibliotecas :
++ Numpy: pip install numpy
++Pillow(PIL) : pip install Pillow
++Matplotlib: pip install matplotlib
+
+##USO :
+**CLONA EL REPOSITORIO** 
+**INSTALA LAS DEPENDENCIAS***
+***EJECUTA EL SCRIPT***
+ATENCIO : ASEGURATE DE CAMBIAR LA RUTA A LA IMAGEN
+
