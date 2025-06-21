@@ -1,4 +1,4 @@
-import numpy as np
+from PIL import Image
 
 class FactoryMatriz:
     def __init__(self):
@@ -16,3 +16,24 @@ class FactoryMatriz:
             return "La matriz está vacía."
         else:
             return self.lista_de_matriz
+        
+    
+
+class FactoryProcesadorImagen:
+    def __init__(self):
+        self.imagen = None
+    def cargar_imagen(self,ruta_imagen): 
+        try:
+            # exepcion para informar que la imagen no esta en la ruta dada    
+            self.imagen = Image.open(ruta_imagen)  #variable  que habre la imagen usando pillow
+        except FileNotFoundError:
+            return "la imagen en '{ruta_imagen}' no se encontro"
+        
+    def retornar_imagen(self):
+        if self.imagen is None:
+            return "No hay imagen cargada."
+        else:
+            return self.imagen
+        
+
+        

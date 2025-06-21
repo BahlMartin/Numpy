@@ -1,42 +1,50 @@
-from class_factory import FactoryMatriz
-from calculadora import CalculadoraMatrices
+from class_factory import FactoryMatriz, FactoryProcesadorImagen
 from class_matriz import Matriz
-def main():
-    # Crear una matriz usando la Factory
-    fabrica = FactoryMatriz()
-    fabrica.crear_fila_matriz([1, 2])
-    fabrica.crear_fila_matriz([3, 4])
-    matriz1 = fabrica.retornar_matriz()
+from class_ProcesadorImagen import ProcesadorImagen
+# Crear una matriz usando la Factory
+fabrica = FactoryMatriz()
+fabrica.crear_fila_matriz([1, 2])
+fabrica.crear_fila_matriz([3, 4])
+matriz1 = Matriz(fabrica.retornar_matriz())
 
-    # Crear otra matriz directamente
-    fabrica2 = FactoryMatriz()
-    fabrica2.crear_fila_matriz([5, 6]) 
-    fabrica2.crear_fila_matriz([7, 8])
-    matriz2 = Matriz(fabrica2.retornar_matriz())
+# Crear otra matriz directamente
+fabrica2 = FactoryMatriz()
+fabrica2.crear_fila_matriz([5, 6]) 
+fabrica2.crear_fila_matriz([7, 8])
+matriz2 = Matriz(fabrica2.retornar_matriz())
 
-    # Crear objetos de CalculadoraMatrices
-    calc = CalculadoraMatrices(matriz1)
 
-    print("Matriz 1:")
-    print(calc)
 
-    print("\nMatriz 2:")
-    print(matriz2)
 
-    print("\nSuma:")
-    print(calc.suma(matriz2))
+# Crear objetos de CalculadoraMatrices
+print("Matriz 1:")
+print(matriz1)
 
-    print("\nResta:")
-    print(calc.resta(matriz2))
+print("\nMatriz 2:")
+print(matriz2)
 
-    print("\nMultiplicación:")
-    print(calc.multiplicacion(matriz2))
+print("\nSuma:")
+print(matriz1.suma_matrices(matriz2))
 
-    print("\nTranspuesta de la matriz 1:")
-    print(calc.transpuesta())
+print("\nResta:")
+print(matriz1.resta_matrices(matriz2))
 
-    print("\nDeterminante de la matriz 1:")
-    print(calc.determinante())
+print("\nMultiplicación:")
+print(matriz1.multiplicacion(matriz2))
 
-if __name__ == "__main__":
-    main()
+print("\nTranspuesta de la matriz 1:")
+print(matriz1.transpuesta())
+
+print("\nDeterminante de la matriz 1:")
+print(matriz1.determinante())
+
+# Crear un objeto ProcesadorImagen y realizar operaciones
+fabricaimg = FactoryProcesadorImagen()
+fabricaimg.cargar_imagen('C:/Users/bahlm/Downloads/fotocolorida.jpg')
+procesador = ProcesadorImagen(fabricaimg.retornar_imagen())
+procesador.Convertir_y_Mostrar_Imagen_gris()
+procesador.imagen_blanco_negro()              
+imagen_invertida = procesador.invertir()
+procesador.mostrar_imagen(imagen_invertida)
+procesador.Redimensionar(100, 100)
+procesador.NormalizarRGB() 
