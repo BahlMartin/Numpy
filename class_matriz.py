@@ -42,7 +42,7 @@ class Matriz():
     def resta_numero_matriz(self, numero):
         if isinstance(numero, int):
             self.matriz = numero - self.matriz 
-            return self.matriz
+            return  self.matriz
         else:
             return "El número debe ser un entero o un flotante."
         

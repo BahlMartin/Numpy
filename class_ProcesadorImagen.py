@@ -56,9 +56,8 @@ class ProcesadorImagen():
         if img_modificada != None:
             if isinstance(img_modificada, Image.Image):
                 matriz_img_modificada = Matriz(img_modificada)
-                matriz_img_modificada.resta_numero_matriz(255)
-                a = matriz_img_modificada.devolver_matriz()
-                return Image.fromarray(a)
+                matriz_img_modificada_invertida = matriz_img_modificada.resta_numero_matriz(255)
+                return Image.fromarray(matriz_img_modificada_invertida)
             else:
                 raise TypeError("img_modificada debe ser una instancia de PIL.Image.Image")
         else:
