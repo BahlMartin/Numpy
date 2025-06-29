@@ -1,4 +1,6 @@
 from PIL import Image
+from class_matriz import Matriz
+from class_ProcesadorImagen import ProcesadorImagen
 
 class FactoryMatriz:
     def __init__(self):
@@ -15,7 +17,7 @@ class FactoryMatriz:
         if self.lista_de_matriz == []:
             return "La matriz está vacía."
         else:
-            return self.lista_de_matriz
+            return Matriz(self.lista_de_matriz)
         
     
 
@@ -33,7 +35,7 @@ class FactoryProcesadorImagen:
         if self.imagen is None:
             return "No hay imagen cargada."
         else:
-            return self.imagen
+            return ProcesadorImagen(self.imagen)
         
 
         

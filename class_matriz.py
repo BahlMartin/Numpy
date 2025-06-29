@@ -31,7 +31,7 @@ class Matriz():
             return "Las matrices no se pueden multiplicar: número de columnas de la primera matriz debe ser igual al número de filas de la segunda."
     
     def multiplicacion_escalar(self, escalar):
-        if  isinstance(escalar, (int, float)):
+        if  not isinstance(escalar, (int, float)):
             return "El escalar debe ser un número."
         else:
             return self.matriz * escalar

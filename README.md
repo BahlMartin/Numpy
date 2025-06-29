@@ -1,46 +1,131 @@
-🧮 Proyectos con NumPy en Python
-Este repositorio contiene una serie de proyectos desarrollados con la biblioteca NumPy, orientados a la comprensión y aplicación práctica de operaciones matemáticas y de inteligencia artificial desde cero.
-📌 1. Calculadora de matrices
-Herramienta que permite realizar operaciones básicas entre matrices usando NumPy:
+# 🖼️ Procesador de Imágenes y Calculadora de Matrices con Python
 
-✅ Suma de matrices
+Este proyecto implementa una herramienta de procesamiento básico de **matrices** y **manipulación de imágenes** usando Python. Incluye:
 
-✅ Resta de matrices
+- Operaciones con matrices: suma, resta, multiplicación, determinante, transpuesta, promedio, etc.
+- Procesamiento de imágenes: conversión a escala de grises, binarización, inversión, redimensionado y normalización RGB.
+- Uso de patrones de diseño `Factory` para crear matrices e imágenes de manera flexible.
 
-✅ Multiplicación matricial
+---
 
-✅ Transposición de matrices
+## 📁 Estructura del Proyecto
 
-El proyecto incluye ejemplos interactivos y validación de dimensiones para asegurar que las operaciones sean válidas.
+```
+.
+├── main.py
+├── class_matriz.py
+├── class_ProcesadorImagen.py
+├── class_factory.py
+├── README.md
+```
 
-📌 2. Conversión de listas anidadas en arrays
-Este módulo demuestra cómo convertir estructuras tradicionales de Python (listas anidadas) en arrays NumPy. Se incluyen funciones para:
+---
 
-🔁 Conversión directa a arrays multidimensionales
+## 📦 Requisitos
 
-🔍 Inspección de forma y tipo de datos (shape, dtype)
+Este proyecto utiliza las siguientes bibliotecas:
 
-⚙️ Aplicación de operaciones vectorizadas sobre los arrays resultantes
+- `numpy`
+- `Pillow`
+- `matplotlib`
 
-📌 3. Implementación de una red neuronal desde cero
-Implementación de una red neuronal artificial completamente desde cero utilizando únicamente NumPy, sin usar frameworks de machine learning.
+Instalación con pip:
 
-🧠 Estructura básica: red con una capa oculta
+```bash
+pip install numpy pillow matplotlib
+```
 
-🧮 Propagación hacia adelante (forward pass) y retropropagación (backpropagation)
+---
 
-🎯 Función de activación: Sigmoid
+## ▶️ Ejecución
 
-🔁 Entrenamiento sobre problemas simples como XOR
+El archivo principal es `main.py`, donde se crean objetos para:
 
-📈 Ajuste de pesos con descenso del gradiente
+- Operaciones con matrices.
+- Carga y procesamiento de una imagen desde una ruta local.
 
-Se planteo el proyecto para entender el funcionamiento interno de las redes neuronales y como se entrenan paso a paso
+```bash
+python main.py
+```
 
-⚙️ Requisitos
-Python 3.x
+> ⚠️ Asegúrate de modificar la ruta de imagen en el código:
+>
+> ```python
+> fabricaimg.cargar_imagen('C:/Users/usuario/Downloads/mi_imagen.jpg')
+> ```
 
-NumPy
+---
 
-🧠 Autor
-Proyecto desarrollado con fines educativos para reforzar el uso de NumPy en matemáticas computacionales y machine learning.
+## 📚 Tabla de Métodos
+
+### 🔢 `Matriz`
+
+| Método                        | Descripción                                                         |
+| ----------------------------- | ------------------------------------------------------------------- |
+| `transpuesta()`               | Devuelve la matriz transpuesta.                                     |
+| `determinante()`              | Calcula el determinante (solo si es una matriz cuadrada).           |
+| `__str__()`                   | Representación en cadena de la matriz.                              |
+| `devolver_matriz()`           | Devuelve la matriz interna como array de NumPy.                     |
+| `suma_matrices(otra_matriz)`  | Suma con otra instancia de `Matriz`.                                |
+| `resta_matrices(otra_matriz)` | Resta otra instancia de `Matriz`.                                   |
+| `multiplicacion(otra_matriz)` | Multiplica la matriz con otra si las dimensiones son compatibles.   |
+| `multiplicacion_escalar(x)`   | Multiplica todos los elementos por un escalar.                      |
+| `promedio()`                  | Devuelve el promedio de los valores de la matriz.                   |
+| `resta_numero_matriz(n)`      | Resta cada valor de la matriz a un número (para invertir imágenes). |
+| `normalizar_matriz_imagen()`  | Normaliza los valores de la matriz en el rango [0,1].               |
+
+---
+
+### 🖼️ `ProcesadorImagen`
+
+| Método                              | Descripción                                                            |
+| ----------------------------------- | ---------------------------------------------------------------------- |
+| `Convertir_y_Mostrar_Imagen_gris()` | Convierte la imagen a escala de grises, calcula el promedio e imprime. |
+| `mostrar_imagen(imagen=None)`       | Muestra una imagen específica o la imagen original.                    |
+| `comparar_imagen(imagen)`           | Muestra lado a lado la imagen original y una modificada.               |
+| `Redimensionar(ancho, alto)`        | Redimensiona la imagen a las dimensiones dadas.                        |
+| `binarizar_pixel_gris(x)`           | Convierte un pixel a blanco o negro según un umbral (128).             |
+| `imagen_blanco_negro()`             | Convierte imagen a binaria a partir de escala de grises.               |
+| `invertir(imagen=None)`             | Invierte los colores de la imagen (255 - pixel).                       |
+| `NormalizarRGB()`                   | Normaliza los valores RGB entre 0 y 1 si la imagen es RGB.             |
+
+---
+
+### 🏠 `FactoryMatriz`
+
+| Método                             | Descripción                                                    |
+| ---------------------------------- | -------------------------------------------------------------- |
+| `crear_fila_matriz(lista_numeros)` | Añade una fila a la matriz si todos los elementos son números. |
+| `retornar_matriz()`                | Devuelve una instancia de `Matriz` con las filas agregadas.    |
+
+---
+
+### 🏠 `FactoryProcesadorImagen`
+
+| Método                | Descripción                                   |
+| --------------------- | --------------------------------------------- |
+| `cargar_imagen(ruta)` | Carga una imagen desde la ruta proporcionada. |
+| `retornar_imagen()`   | Devuelve una instancia de `ProcesadorImagen`. |
+
+---
+
+## 📊 Resultados Esperados
+
+Al ejecutar el proyecto:
+
+- Se imprimen resultados de operaciones matriciales en consola.
+- Se visualizan imágenes procesadas (binarizadas, invertidas, redimensionadas).
+
+---
+
+## 🛠️ Futuras Mejoras
+
+- Agregar interfaz gráfica.
+- Exportación de resultados (matrices e imágenes).
+- Integración de pruebas unitarias.
+
+---
+
+## 🧑‍💻 Autor
+
+Desarrollado por Martin ,Bahl, Julian ,Perez y Marcelo.
