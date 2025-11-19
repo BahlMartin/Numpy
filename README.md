@@ -128,4 +128,4 @@ Al ejecutar el proyecto:
 
 ## 🧑‍💻 Autor
 
-Desarrollado por Martin ,Bahl, Julian ,Perez y Marcelo.
+Desarrollado por Martin ,Bahl, Julian ,Perez y Marcelo Ramirez.
